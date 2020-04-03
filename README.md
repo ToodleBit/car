@@ -1,11 +1,8 @@
 
-# Cute:bot Car Package
+# Car Package
 
 ![](/image.png/)
 
-This library is designed to drive Cutebot, You can get Cutebot here.
-
-https://www.elecfreaks.com/store/cute-bot.html
 ## Code Example
 ```JavaScript
 
