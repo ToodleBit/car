@@ -227,7 +227,7 @@ const STM8_ADDRESSS = 0x10
     * Close all headlights.
     */
     //% inlineInputMode=inline
-    //% block="Turn off all LED headlights"
+    //% block="Turn off headlights"
     export function closeheadlights(): void {
         let buf = pins.createBuffer(4);
         buf[0] = 0x04;
