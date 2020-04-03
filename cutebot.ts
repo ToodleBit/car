@@ -36,9 +36,9 @@ const STM8_ADDRESSS = 0x10
 	* Select the RGBLights on the left or right
 	*/
     export enum RGBLights {
-        //% blockId="Right_RGB" block="Right_RGB"
+        //% blockId="Right_light" block="Right_light"
         RGB_L = 1,
-        //% blockId="Left_RGB" block="Left_RGB"
+        //% blockId="Left_light" block="Left_light"
         RGB_R = 0,
         //% blockId="ALL" block="ALL"
         ALL = 3
