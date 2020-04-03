@@ -143,7 +143,7 @@ const STM8_ADDRESSS = 0x10
     * @param speed Running speed, eg: 50
     * @param time Travel time, eg: 3
     */
-    //% blockId=cutebot_move_time block="go %dir at speed%speed\\% for %time seconds"
+    //% blockId=cutebot_move_time block="go %dir at %speed\\% for %time seconds"
    //% speed.min=15 speed.max=100
     export function moveTime(dir: Direction, speed: number, time: number): void {
         if (dir == 0) {
