@@ -2,7 +2,7 @@
  * Based on the code by ELECFREAKS
  */
 //% color=#008C8C weight=10 icon="\uf1b9"
-namespace cuteBot {
+namespace ToodleCar {
 const STM8_ADDRESSS = 0x10
     let _initEvents = true
 	/**
