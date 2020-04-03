@@ -92,7 +92,7 @@ const STM8_ADDRESSS = 0x10
      * @param lspeed Left wheel speed , eg: 50
      * @param rspeed Right wheel speed, eg: 50
      */
-    //% blockId=MotorRun block="Set left wheel speed %lspeed\\% |right wheel speed %rspeed\\%"
+    //% blockId=MotorRun block="left wheel speed %lspeed\\% |right wheel speed %rspeed\\%"
     //% lspeed.min=-100 lspeed.max=100
     //% rspeed.min=-100 rspeed.max=100
     export function motors(lspeed: number = 50, rspeed: number = 50): void {
@@ -143,7 +143,7 @@ const STM8_ADDRESSS = 0x10
     * @param speed Running speed, eg: 50
     * @param time Travel time, eg: 3
     */
-    //% blockId=cutebot_move_time block="Go %dir at speed%speed\\% for %time seconds"
+    //% blockId=cutebot_move_time block="go %dir at speed%speed\\% for %time seconds"
     export function moveTime(dir: Direction, speed: number, time: number): void {
         if (dir == 0) {
             motors(speed, speed);
@@ -170,14 +170,14 @@ const STM8_ADDRESSS = 0x10
 	/**
     * TODO: stopcar
     */
-    //% blockId=cutebot_stopcar block="Brake"
+    //% blockId=cutebot_stopcar block="brake"
     export function stopcar(): void {
         motors(0, 0)
     }
     /**
     * TODO: Set LED headlights.
     */
-    //% block="Headlights %light color $color"
+    //% block="headlights %light color $color"
     //% color.shadow="colorNumberPicker"
     export function colorLight(light: RGBLights, color: number) {
         let r, g, b: number = 0
@@ -193,7 +193,7 @@ const STM8_ADDRESSS = 0x10
 	* @param B B color value of RGB color, eg: 255
 	*/
     //% inlineInputMode=inline
-    //% blockId=RGB block="Set LED headlights %light color R:%r G:%g B:%b"
+    //% blockId=RGB block="headlights %light color R:%r G:%g B:%b"
     //% r.min=0 r.max=255
     //% g.min=0 g.max=255
     //% b.min=0 b.max=255
@@ -227,7 +227,7 @@ const STM8_ADDRESSS = 0x10
     * Close all headlights.
     */
     //% inlineInputMode=inline
-    //% block="Turn off headlights"
+    //% block="turn off headlights"
     export function closeheadlights(): void {
         let buf = pins.createBuffer(4);
         buf[0] = 0x04;
@@ -243,7 +243,7 @@ const STM8_ADDRESSS = 0x10
 	* Judging the Current Status of Tracking Module. 
 	* @param state Four states of tracking module, eg: TrackingState.L_R_line
     */
-    //% blockId=ringbitcar_tracking block="Tracking state is %state"
+    //% blockId=ringbitcar_tracking block="tracking state is %state"
 	//% advanced=true
     export function tracking(state: TrackingState): boolean {
 
@@ -314,7 +314,7 @@ const STM8_ADDRESSS = 0x10
 	* Cars can extend the ultrasonic function to prevent collisions and other functions.. 
 	* @param Sonarunit two states of ultrasonic module, eg: Centimeters
     */
-    //% blockId=ultrasonic block="HC-SR04 Sonar unit %unit"
+    //% blockId=ultrasonic block="sonar unit %unit"
     //% advanced=true
     export function ultrasonic(unit: SonarUnit, maxCmDistance = 500): number {
         // send pulse
