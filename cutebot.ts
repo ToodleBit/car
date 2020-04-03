@@ -1,7 +1,7 @@
 /**
- * Functions to Cutebot by ELECFREAKS Co.,Ltd.
+ * Based on the code by ELECFREAKS
  */
-//% weight=5 color=#0fbc11  icon="\uf207" 
+//% color=#008C8C weight=10 icon="\uf1b9"
 namespace cuteBot {
 const STM8_ADDRESSS = 0x10
     let _initEvents = true
@@ -89,8 +89,8 @@ const STM8_ADDRESSS = 0x10
     }
     /**
      * TODO: Set the speed of left and right wheels. 
-     * @param lspeed Left wheel speed , eg: 100
-     * @param rspeed Right wheel speed, eg: -100
+     * @param lspeed Left wheel speed , eg: 50
+     * @param rspeed Right wheel speed, eg: 50
      */
     //% blockId=MotorRun block="Set left wheel speed %lspeed\\% |right wheel speed %rspeed\\%"
     //% lspeed.min=-100 lspeed.max=100
