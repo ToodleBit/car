@@ -234,14 +234,14 @@ const STM8_ADDRESSS = 0x10
 	/**
     * TODO: stopcar
     */
-    //% blockId=cutebot_stopcar block="Stop car immediatly"
+    //% blockId=cutebot_stopcar block="Brake"
     export function stopcar(): void {
         motors(0, 0)
     }
     /**
     * TODO: Set LED headlights.
     */
-    //% block="Set LED headlights %light color $color"
+    //% block="Headlights %light color $color"
     //% color.shadow="colorNumberPicker"
     export function colorLight(light: RGBLights, color: number) {
         let r, g, b: number = 0
@@ -396,30 +396,7 @@ const STM8_ADDRESSS = 0x10
                 return d;
         }
     }
-    /**
-     * TODO: Set the angle of servo. 
-     * @param Servo ServoList , eg: cuteBot.ServoList.S1
-     * @param angle angle of servo, eg: 90
-     */
-    //% blockId=cutebot_servo block="Set servo %servo angle to %angle °"
-    //% angle.shadow="protractorPicker"
-    export function setServo(Servo: ServoList, angle: number = 180): void {
-        let buf = pins.createBuffer(4);
-        if (Servo == ServoList.S1) {
-            buf[0] = 0x05;
-            buf[1] = angle;
-            buf[2] = 0;
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        }
-        else {
-            buf[0] = 0x06;
-            buf[1] = angle;
-            buf[2] = 0;
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        }
-    }
+
     function initEvents(): void {
         if (_initEvents) {
             pins.setEvents(DigitalPin.P13, PinEventType.Edge);
