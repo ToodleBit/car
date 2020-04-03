@@ -166,71 +166,7 @@ const STM8_ADDRESSS = 0x10
             motors(0, 0)
         }
     }
-    /**
-    * TODO: full speed move forward,speed is 100.
-    */
-    //% blockId=cutebot_forward block="Go straight at full speed"
-    export function forward(): void {
-        // Add code here
-        let buf = pins.createBuffer(4);
-        buf[0] = 0x01;
-        buf[1] = 0x02;
-        buf[2] = 80;
-        buf[3] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        buf[0] = 0x02;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-    }
 
-
-    /**
-    * TODO: full speed move back,speed is -100.
-    */
-    //% blockId=cutebot_back block="Reverse at full speed"
-    export function backforward(): void {
-        // Add code here
-        let buf = pins.createBuffer(4);
-        buf[0] = 0x01;
-        buf[1] = 0x01;
-        buf[2] = 80;
-        buf[3] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        buf[0] = 0x02;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-
-    }
-	/**
-    * TODO: full speed turnleft.
-    */
-    //% blockId=cutebot_left block="Turn left at full speed"
-    export function turnleft(): void {
-        // Add code here
-        let buf = pins.createBuffer(4);
-        buf[0] = 0x02;
-        buf[1] = 0x02;
-        buf[2] = 80;
-        buf[3] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        buf[0] = 0x01;
-        buf[2] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-    }
-	/**
-    * TODO: full speed turnright.
-    */
-    //% blockId=cutebot_right block="Turn right at full speed"
-    export function turnright(): void {
-        // Add code here
-        let buf = pins.createBuffer(4);
-        buf[0] = 0x01;
-        buf[1] = 0x02;
-        buf[2] = 80;
-        buf[3] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-        buf[0] = 0x02;
-        buf[2] = 0;
-        pins.i2cWriteBuffer(STM8_ADDRESSS, buf);
-    }
 	/**
     * TODO: stopcar
     */
@@ -261,6 +197,7 @@ const STM8_ADDRESSS = 0x10
     //% r.min=0 r.max=255
     //% g.min=0 g.max=255
     //% b.min=0 b.max=255
+	//% advanced=true
     export function singleheadlights(light: RGBLights, r: number, g: number, b: number): void {
         let buf = pins.createBuffer(4);
         if (light == 3) {
@@ -307,6 +244,7 @@ const STM8_ADDRESSS = 0x10
 	* @param state Four states of tracking module, eg: TrackingState.L_R_line
     */
     //% blockId=ringbitcar_tracking block="Tracking state is %state"
+	//% advanced=true
     export function tracking(state: TrackingState): boolean {
 
         pins.setPull(DigitalPin.P13, PinPullMode.PullNone)
@@ -337,6 +275,7 @@ const STM8_ADDRESSS = 0x10
     //% block="%side line sensor %state"
     //% state.fieldEditor="gridpicker" state.fieldOptions.columns=2
     //% side.fieldEditor="gridpicker" side.fieldOptions.columns=2
+    //% advanced=true
     export function trackSide(side: MbPins, state: MbEvents): boolean {
         pins.setPull(DigitalPin.P13, PinPullMode.PullNone)
         pins.setPull(DigitalPin.P14, PinPullMode.PullNone)
@@ -364,6 +303,7 @@ const STM8_ADDRESSS = 0x10
     //% block="On %sensor| line %event"
     //% sensor.fieldEditor="gridpicker" sensor.fieldOptions.columns=2
     //% event.fieldEditor="gridpicker" event.fieldOptions.columns=2
+    //% advanced=true
     export function trackEvent(sensor: MbPins, event: MbEvents, handler: Action) {
         initEvents();
         control.onEvent(<number>sensor, <number>event, handler);
@@ -375,6 +315,7 @@ const STM8_ADDRESSS = 0x10
 	* @param Sonarunit two states of ultrasonic module, eg: Centimeters
     */
     //% blockId=ultrasonic block="HC-SR04 Sonar unit %unit"
+    //% advanced=true
     export function ultrasonic(unit: SonarUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(DigitalPin.P8, PinPullMode.PullNone);
@@ -415,6 +356,7 @@ const STM8_ADDRESSS = 0x10
   //% blockId=ir_received_event
   //% block="on |%btn| button pressed"
   //% shim=IR::onPressEvent
+  //% advanced=true
   export function onPressEvent(btn: RemoteButton, body:Action): void {
     return
   }
