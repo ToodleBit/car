@@ -40,7 +40,7 @@ const STM8_ADDRESSS = 0x10
         RGB_L = 1,
         //% blockId="Left_light" block="Left_light"
         RGB_R = 0,
-        //% blockId="ALL" block="ALL"
+        //% blockId="All" block="All"
         ALL = 3
     }
 	/**
@@ -141,7 +141,7 @@ const STM8_ADDRESSS = 0x10
     * TODO: Full speed operation lasts for 10 seconds,speed is 100.
     * @param dir Driving direction, eg: Direction.forward
     * @param speed Running speed, eg: 50
-    * @param time Travel time, eg: 5
+    * @param time Travel time, eg: 3
     */
     //% blockId=cutebot_move_time block="Go %dir at speed%speed\\% for %time seconds"
     export function moveTime(dir: Direction, speed: number, time: number): void {
