@@ -1,7 +1,7 @@
 {
-    "name": "Cutebot",
+    "name": "ToodleCar",
     "version": "3.0.1",
-    "description": "ELECFREAKS cutebot car",
+    "description": "A robotic car",
     "license": "MIT",
     "dependencies": {
         "core": "*",
