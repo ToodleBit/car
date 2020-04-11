@@ -92,7 +92,7 @@ const STM8_ADDRESSS = 0x10
      * @param lspeed Left wheel speed , eg: 50
      * @param rspeed Right wheel speed, eg: 50
      */
-    //% blockId=MotorRun block="left wheel speed %lspeed\\% |right wheel speed %rspeed\\%"
+    //% blockId=MotorRun block="drive: left wheel %lspeed\\% |right wheel %rspeed\\%"
     //% lspeed.min=-100 lspeed.max=100
     //% rspeed.min=-100 rspeed.max=100
     export function motors(lspeed: number = 50, rspeed: number = 50): void {
