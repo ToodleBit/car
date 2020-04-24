@@ -362,4 +362,15 @@ const STM8_ADDRESSS = 0x10
     return
   }
 
+   /**
+     * Pause for the specified time in seconds
+     * @param ms how long to pause for, eg: 1, 2, 5
+     */
+    //% help=basic/pause weight=54
+    //% async block="pause (seconds) %pause" blockGap=16
+    //% blockId=device_pause icon="\uf110"
+    //% pause.shadow=timePicker
+    void pause(int ms) {
+      fiber_sleep(ms*1000);
+    }
 }
