@@ -363,5 +363,13 @@ const STM8_ADDRESSS = 0x10
     return
   }
 
-
+    /**
+    * TODO: Pause for the specified time in seconds
+    * @param sec how long to pause for, eg: 1, 2, 5
+    */
+    //% block="pause (seconds) $sec"
+    export function mypause(sec: number): void {
+        basic.pause(sec * 1000);
+    }
+	
 }
