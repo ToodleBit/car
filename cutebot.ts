@@ -3,8 +3,10 @@
  */
 //% color=#008C8C weight=10 icon="\uf1b9"
 namespace ToodleCar {
-const STM8_ADDRESSS = 0x10
+
+	const STM8_ADDRESSS = 0x10
     let _initEvents = true
+	
 	/**
 	* Unit of Ultrasound Module
 	*/
@@ -14,24 +16,8 @@ const STM8_ADDRESSS = 0x10
         //% block="inches"
         Inches
     }
-	/**
-	* Select the motor on the left or right
-	*/
-    export enum MotorsList {
-        //% blockId="M1" block="M1"
-        M1 = 0,
-        //% blockId="M2" block="M2"
-        M2 = 1
-    }
-	/**
-	* Select the servo on the S1 or S2
-	*/
-    export enum ServoList {
-        //% block="S1"
-        S1 = 0,
-        //% block="S2"
-        S2 = 1
-    }
+	
+	
 	/**
 	* Select the RGBLights on the left or right
 	*/
@@ -43,6 +29,8 @@ const STM8_ADDRESSS = 0x10
         //% blockId="All" block="All"
         ALL = 3
     }
+	
+	
 	/**
 	* Status List of Tracking Modules
 	*/
@@ -59,6 +47,8 @@ const STM8_ADDRESSS = 0x10
         //% block="◌ ◌" enumval=3
         L_R_unline
     }
+	
+	
     export enum Direction {
         //% block="Forward" enumval=0
         forward,
@@ -69,6 +59,8 @@ const STM8_ADDRESSS = 0x10
         //% block="Right" enumval=3
         right
     }
+	
+	
     /**
     * Line Sensor events    MICROBIT_PIN_EVT_RISE
     */
@@ -78,6 +70,8 @@ const STM8_ADDRESSS = 0x10
         //% block="Lost" 
         LoseLine = DAL.MICROBIT_PIN_EVT_RISE
     }
+	
+	
     /**
      * Pins used to generate events
      */
@@ -87,6 +81,8 @@ const STM8_ADDRESSS = 0x10
         //% block="Right" 
         Right = DAL.MICROBIT_ID_IO_P14
     }
+	
+	
     /**
      * Choose the speed of left and right wheels. 
      * @param lspeed Left wheel speed , eg: 50
@@ -137,6 +133,8 @@ const STM8_ADDRESSS = 0x10
         }
 
     }
+	
+	
     /**
     * Set the speed, direction and for how long.
     * @param dir Driving direction, eg: Direction.forward
@@ -168,6 +166,7 @@ const STM8_ADDRESSS = 0x10
         }
     }
 
+
 	/**
     * Stop the car.
     */
@@ -175,6 +174,8 @@ const STM8_ADDRESSS = 0x10
     export function stopcar(): void {
         motors(0, 0)
     }
+	
+	
     /**
     * Set LED headlights.
     */
@@ -187,6 +188,8 @@ const STM8_ADDRESSS = 0x10
         b = color & 0xFF
         singleheadlights(light, r, g, b)
     }
+	
+	
 	/**
 	* Select which headlights and set the color.
 	* @param R R color value of RGB color, eg: 0
@@ -224,6 +227,8 @@ const STM8_ADDRESSS = 0x10
         }
 
     }
+	
+	
     /**
     * Turn off the headlights.
     */
@@ -268,6 +273,8 @@ const STM8_ADDRESSS = 0x10
             return false;
         }
     }
+	
+	
     /**
     * Use to track one side.
     * @param side Line sensor edge , eg: MbPins.Left
@@ -298,6 +305,8 @@ const STM8_ADDRESSS = 0x10
             return false;
         }
     }
+	
+	
     /**
     * Runs when line sensor finds or loses the line.
     */
@@ -311,6 +320,8 @@ const STM8_ADDRESSS = 0x10
         console.logValue("sensor", sensor)
         console.logValue("event", event)
     }
+	
+	
 	/**
 	* Cars can extend the ultrasonic function to prevent collisions and other functions.. 
 	* @param Sonarunit two states of ultrasonic module, eg: Centimeters
