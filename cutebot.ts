@@ -36,9 +36,9 @@ const STM8_ADDRESSS = 0x10
 	* Select the RGBLights on the left or right
 	*/
     export enum RGBLights {
-        //% blockId="Right_light" block="Right_light"
+        //% blockId="Right_light" block="Right"
         RGB_L = 1,
-        //% blockId="Left_light" block="Left_light"
+        //% blockId="Left_light" block="Left"
         RGB_R = 0,
         //% blockId="All" block="All"
         ALL = 3
@@ -88,7 +88,7 @@ const STM8_ADDRESSS = 0x10
         Right = DAL.MICROBIT_ID_IO_P14
     }
     /**
-     * TODO: Set the speed of left and right wheels. 
+     * Choose the speed of left and right wheels. 
      * @param lspeed Left wheel speed , eg: 50
      * @param rspeed Right wheel speed, eg: 50
      */
@@ -108,37 +108,37 @@ const STM8_ADDRESSS = 0x10
             rspeed = -100;
         }
         if (lspeed > 0) {
-            buf[0] = 0x01;    //左右轮 0x01左轮  0x02右轮
-            buf[1] = 0x02;		//正反转0x02前进  0x01后退
-            buf[2] = lspeed;	//速度
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);  //写入左轮
+            buf[0] = 0x01;    
+            buf[1] = 0x02;		
+            buf[2] = lspeed;	
+            buf[3] = 0;			
+            pins.i2cWriteBuffer(STM8_ADDRESSS, buf); 
         }
         else {
             buf[0] = 0x01;
             buf[1] = 0x01;
             buf[2] = lspeed * -1;
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);  //写入左轮
+            buf[3] = 0;			
+            pins.i2cWriteBuffer(STM8_ADDRESSS, buf); 
         }
         if (rspeed > 0) {
             buf[0] = 0x02;
             buf[1] = 0x02;
             buf[2] = rspeed;
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);  //写入左轮
+            buf[3] = 0;			
+            pins.i2cWriteBuffer(STM8_ADDRESSS, buf); 
         }
         else {
             buf[0] = 0x02;
             buf[1] = 0x01;
             buf[2] = rspeed * -1;
-            buf[3] = 0;			//补位
-            pins.i2cWriteBuffer(STM8_ADDRESSS, buf);  //写入左轮
+            buf[3] = 0;			
+            pins.i2cWriteBuffer(STM8_ADDRESSS, buf); 
         }
 
     }
     /**
-    * TODO: Full speed operation lasts for 10 seconds,speed is 100.
+    * Set the speed, direction and for how long.
     * @param dir Driving direction, eg: Direction.forward
     * @param speed Running speed, eg: 50
     * @param time Travel time, eg: 3
@@ -169,7 +169,7 @@ const STM8_ADDRESSS = 0x10
     }
 
 	/**
-    * TODO: stopcar
+    * Stop the car.
     */
     //% blockId=cutebot_stopcar block="brake"
     export function stopcar(): void {
@@ -188,7 +188,7 @@ const STM8_ADDRESSS = 0x10
         singleheadlights(light, r, g, b)
     }
 	/**
-	* TODO: Select a headlights and set the RGB color.
+	* Select which headlights and set the color.
 	* @param R R color value of RGB color, eg: 0
 	* @param G G color value of RGB color, eg: 128
 	* @param B B color value of RGB color, eg: 255
@@ -225,7 +225,7 @@ const STM8_ADDRESSS = 0x10
 
     }
     /**
-    * Close all headlights.
+    * Turn off the headlights.
     */
     //% inlineInputMode=inline
     //% block="turn off headlights"
@@ -241,7 +241,7 @@ const STM8_ADDRESSS = 0x10
     }
 
     /**
-	* Judging the Current Status of Tracking Module. 
+	* Check the current status of tracking module. 
 	* @param state Four states of tracking module, eg: TrackingState.L_R_line
     */
     //% blockId=ringbitcar_tracking block="tracking state is %state"
@@ -269,7 +269,7 @@ const STM8_ADDRESSS = 0x10
         }
     }
     /**
-    * TODO: track one side
+    * Use to track one side.
     * @param side Line sensor edge , eg: MbPins.Left
     * @param state Line sensor status, eg: MbEvents.FindLine
     */
@@ -299,7 +299,7 @@ const STM8_ADDRESSS = 0x10
         }
     }
     /**
-    * TODO: Runs when line sensor finds or loses.
+    * Runs when line sensor finds or loses the line.
     */
     //% block="On %sensor| line %event"
     //% sensor.fieldEditor="gridpicker" sensor.fieldOptions.columns=2
@@ -352,16 +352,6 @@ const STM8_ADDRESSS = 0x10
     return
   }
 
-  /**
-  * button pushed.
-  */
-  //% blockId=ir_received_event
-  //% block="on |%btn| button pressed"
-  //% shim=IR::onPressEvent
-  //% advanced=true
-  export function onPressEvent(btn: RemoteButton, body:Action): void {
-    return
-  }
 
     /**
     * TODO: Pause for the specified time in seconds
