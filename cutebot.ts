@@ -176,7 +176,7 @@ const STM8_ADDRESSS = 0x10
         motors(0, 0)
     }
     /**
-    * TODO: Set LED headlights.
+    * Set LED headlights.
     */
     //% block="headlights %light color $color"
     //% color.shadow="colorNumberPicker"
@@ -347,14 +347,11 @@ const STM8_ADDRESSS = 0x10
             _initEvents = false;
         }
     }
-  //% shim=IR::init
-  export function init(pin: Pins): void {
-    return
-  }
+
 
 
     /**
-    * TODO: Pause for the specified time in seconds
+    * Pause for the specified time in seconds
     * @param sec how long to pause for, eg: 1, 2, 5
     */
     //% block="pause (seconds) $sec"
