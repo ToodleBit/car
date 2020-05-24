@@ -22,11 +22,11 @@ namespace ToodleCar {
 	* Select the RGBLights on the left or right
 	*/
     export enum RGBLights {
-        //% blockId="Right_light" block="Right"
+        //% blockId="Right_light" block="right"
         RGB_L = 1,
-        //% blockId="Left_light" block="Left"
+        //% blockId="Left_light" block="left"
         RGB_R = 0,
-        //% blockId="All" block="All"
+        //% blockId="All" block="all"
         ALL = 3
     }
 	
